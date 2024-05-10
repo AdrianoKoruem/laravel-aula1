@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormRequestProduto;
 use App\Models\componentes;
 use App\Models\Produto;
+use Brian2694\Toastr\Facades\Toastr as FacadesToastr;
+use Brian2694\Toastr\Toastr;
 use Illuminate\Http\Request;
 
 use function Laravel\Prompts\alert;
@@ -44,6 +46,8 @@ class ProdutosController extends Controller
             $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
 
             Produto::create($data);
+            
+            FacadesToastr::success('gravado com sucesso');
 
             return redirect()->route('produto.index');
         }
@@ -63,11 +67,10 @@ class ProdutosController extends Controller
             $buscarRegistro = Produto::find($id);
             $buscarRegistro ->update($data);
 
+            FacadesToastr::success('gravado com sucesso');
+            
             return redirect()->route('produto.index');
 
-
-
-            return redirect()->route('produto.index');
         }
 
         $findProduto = Produto::where('id', '=' , $id) ->first();
