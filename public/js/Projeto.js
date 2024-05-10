@@ -10,15 +10,19 @@ function deleteRegistroPaginacao(rotaUrl, idDoRegistro){
             beforeSend: function(){
                 $.blockUI({
                     message: 'carregando...',
-                    Timeou:2000,
+                    Timeou:1000,
                 });
             },
         }).done(function(data){
             $.unblockUI();
-            console.log(data);
+            if(data.success ==true){
+                window.location.reload();
+            }else{
+                alert('nao foi possivel deletar')
+            }
         }).fail(function(data){
             $.unblockUI();
-            alert('Não foi possivel deletar');
+            alert('Não foi possivel buscar dados');
         });
     }
 }
