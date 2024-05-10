@@ -10,13 +10,13 @@
 
         <div class="mb-3">
             <label class="form-label">Nome produto</label>
-            <input type="text"  class="form-control " name="nome" required>
+            <input type="text" class="form-control " name="nome" required>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Valor do produto</label>
-            <input type="text" class="form-control " name="nome" required>
-
+            <input id="mascara_valor" type="text" class="form-control " name="valor">
+            {{-- mascara de valor no js --}}
         </div>
 
         <button type="submit" class="btn btn-success">Cadastrar</button>

@@ -13,7 +13,7 @@ class FormRequestProduto extends FormRequest
 
     public function rules(): array
     {
-        $request=[];
+        $request = [];
         if ($this->method() == 'POST') {
             return [
                 'nome' => 'required',

@@ -1,28 +1,30 @@
-function deleteRegistroPaginacao(rotaUrl, idDoRegistro){
-    if(confirm('Deseja excluir?')){
+function deleteRegistroPaginacao(rotaUrl, idDoRegistro) {
+    if (confirm('Deseja excluir?')) {
         $.ajax({
             url: rotaUrl,
             method: 'DELETE',
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data:{
-                id:idDoRegistro,
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: {
+                id: idDoRegistro,
             },
-            beforeSend: function(){
+            beforeSend: function () {
                 $.blockUI({
                     message: 'carregando...',
-                    Timeou:1000,
+                    Timeou: 1000,
                 });
             },
-        }).done(function(data){
+        }).done(function (data) {
             $.unblockUI();
-            if(data.success ==true){
+            if (data.success == true) {
                 window.location.reload();
-            }else{
+            } else {
                 alert('nao foi possivel deletar')
             }
-        }).fail(function(data){
+        }).fail(function (data) {
             $.unblockUI();
-            alert('Não foi possivel buscar dados');
+            aler.t('Não foi possivel buscar dados');
         });
-    }
-}
+    };
+};
+
+

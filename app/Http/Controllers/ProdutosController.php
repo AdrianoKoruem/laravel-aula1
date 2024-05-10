@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\componentes;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -35,15 +36,17 @@ class ProdutosController extends Controller
     public function cadastrarProduto(Request $request)
     {
         if ($request->method() == 'POST') {
-            
+
             $data = $request->all();
+
+            $componentes = new Componentes();
+            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+
             Produto::create($data);
 
-            return redirect()-> route('produto.index');
+            return redirect()->route('produto.index');
         }
 
         return view('pages.produtos.create');
     }
 }
-
-
