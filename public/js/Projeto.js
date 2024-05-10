@@ -27,4 +27,3 @@ function deleteRegistroPaginacao(rotaUrl, idDoRegistro) {
     };
 };
 
-

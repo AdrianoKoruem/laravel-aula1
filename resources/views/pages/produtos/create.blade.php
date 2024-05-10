@@ -10,12 +10,13 @@
 
         <div class="mb-3">
             <label class="form-label">Nome produto</label>
-            <input type="text" class="form-control " name="nome" required>
+            <input type="text" value="{{ old('nome') }}" class="form-control " name="nome" required>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Valor do produto</label>
-            <input id="mascara_valor" type="text" class="form-control " name="valor">
+            <input id="mascara_valor" value="{{ old('valor') }}" type="text" class="form-control " name="valor"
+                required>
             {{-- mascara de valor no js --}}
         </div>
 
