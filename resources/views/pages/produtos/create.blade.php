@@ -20,7 +20,7 @@
             {{-- mascara de valor no js --}}
         </div>
 
-        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <button type="submit" class="btn btn-success">Gravar</button>
 
     </form>
 @endsection
