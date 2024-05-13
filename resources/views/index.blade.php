@@ -167,7 +167,7 @@
     <script src="/js/dashboard.js"></script>
 
     <script src="/js/projeto.js"></script>
-    <script src="/js/mascara_valor.js"></script>
+    <script src="/js/viacep.js"></script>
 
     {{-- InputMask --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
