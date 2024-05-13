@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\cliente;
+use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 use Monolog\Handler\RotatingFileHandler;
 
@@ -51,6 +52,15 @@ Route::prefix('clientes')->group(function () {
 
     // delete
     Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
+});
+
+Route::prefix('vendas')->group(function () {
+
+    Route::get('/', [VendaController::class, 'index'])->name('vendas.index');
+
+    // create
+    Route::get('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
+    Route::post('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
 });
 
 // Route::resource('clientes', ClientesController::class);

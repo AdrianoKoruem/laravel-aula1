@@ -57,8 +57,6 @@ class ClientesController extends Controller
 
             $data = $request->all();
 
-            $componentes = new Componentes();
-
             $buscarRegistro = Clientes::find($id);
             $buscarRegistro->update($data);
 
