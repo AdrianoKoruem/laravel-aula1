@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\cliente;
 use Illuminate\Support\Facades\Route;
 use Monolog\Handler\RotatingFileHandler;
 
@@ -34,3 +36,21 @@ Route::prefix('produtos')->group(function () {
     // delete
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
+
+Route::prefix('clientes')->group(function () {
+
+    Route::get('/', [ClientesController::class, 'index'])->name('cliente.index');
+
+    // create
+    Route::get('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente'])->name('cadastrar.cliente');
+    Route::post('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente'])->name('cadastrar.cliente');
+
+    // update
+    Route::get('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente'])->name('atualizar.cliente');
+    Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente'])->name('atualizar.cliente');
+
+    // delete
+    Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
+});
+
+// Route::resource('clientes', ClientesController::class);

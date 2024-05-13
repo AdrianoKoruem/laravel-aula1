@@ -171,6 +171,30 @@
 
     {{-- InputMask --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script type="text/javascript" src="jquery-1.2.6.pack.js"></script>
+    <script type="text/javascript" src="jquery.maskedinput-1.1.4.pack.js" />
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#cep").mask("99999-999");
+        });
+
+        $(document).ready(function() {
+            $("#money").mask("#.##0,00", {
+                reverse: true
+            });
+        });
+
+        $('#email').mask("A", {
+            translation: {
+                "A": {
+                    pattern: /[\w@\-.+]/,
+                    recursive: true
+                }
+            }
+        });
+    </script>
 
     {{-- BlocUI loading --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>

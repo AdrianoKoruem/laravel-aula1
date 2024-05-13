@@ -17,7 +17,6 @@
 
         </form>
 
-        <h2>Section title</h2>
         <div class="table-responsive small">
             @if ($findProduto->isEmpty())
                 <p> Não existe dados </p>
