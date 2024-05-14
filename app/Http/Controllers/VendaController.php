@@ -19,6 +19,7 @@ class VendaController extends Controller
         $pesquisar = $request->pesquisar;
         $findVendas = $this->venda->getVendasPesquisarIndex(search: $pesquisar ?? '');
 
+        // dd($findVendas);
         return view('pages.vendas.paginacao', compact('findVendas'));
     }
 

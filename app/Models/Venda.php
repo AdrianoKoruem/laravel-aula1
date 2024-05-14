@@ -17,17 +17,19 @@ class Venda extends Model
 
     ];
 
-    public function produto(){
-        return $this->hasMany(Produto::class);
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class,'id_produto');
     }
 
-    public function cliente(){
-        return $this->hasMany(Clientes::class);
+    public function cliente()
+    {
+        return $this->belongsTo(Clientes::class,'id_cliente');
     }
 
     public function getVendasPesquisarIndex(string $search = '')
     {
-        $Vendas = $this->where(function ($query) use ($search) {
+        $Vendas = $this->with('produto','cliente')->where(function ($query) use ($search) {
             if ($search) {
                 $query->where('id_venda', $search);
                 $query->orwhere('id_venda', 'LIKE', "{$search}%");

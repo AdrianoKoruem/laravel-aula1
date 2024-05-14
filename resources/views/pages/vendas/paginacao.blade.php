@@ -33,14 +33,22 @@
                         @foreach ($findVendas as $venda)
                             <tr>
                                 <td>{{ $venda->id_venda }}</td>
-                                <td>{{ $venda->produto()->nome }}</td>
-                                <td>{{ $venda->cliente()->nome }}</td>
+                                <td>{{ $venda->produto->nome}}</td>
+                                <td>{{ $venda->cliente->nome }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @endif
         </div>
-
     </div>
+
+
+    <script>
+        alert("Eu sou um alert!");
+    </script>
+
+    <script>
+        alert("Segundo Alerta");
+    </script>
 @endsection
