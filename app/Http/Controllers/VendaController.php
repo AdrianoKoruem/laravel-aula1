@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestVenda;
+use App\Models\Clientes;
+use App\Models\Produto;
 use App\Models\Venda;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -30,12 +32,24 @@ class VendaController extends Controller
             $data = $request->all();
 
             Venda::create($data);
-            
+
             Toastr::success('gravado com sucesso');
 
-            return redirect()->route('cadastrar.venda');
+            return redirect()->route('vendas.index');
         }
 
-        return view('pages.vendas.create');
+        $findProduto = Produto::all();
+        $findCliente = Clientes::all();
+
+
+        return view('pages.vendas.create', compact('findProduto', 'findCliente'));
     }
-}
+
+    public function enviaComprovantePorEmail($id){
+        $buscarVenda = Venda::where('id', '=', $id)->first();
+        $produtoNome = $buscarVenda->produto->nome;
+        $clienteNome = $buscarVenda->cliente->email;
+
+        dd($buscarVenda, $produtoNome, $clienteNome);
+    }
+};

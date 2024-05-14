@@ -13,8 +13,13 @@ class FormRequestVenda extends FormRequest
 
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $request = [];
+        if ($this->method() == 'POST') {
+            return [
+                'id_cliente' => 'required',
+                'id_produto' => 'required',
+            ];
+        }
+        return $request;
     }
 }

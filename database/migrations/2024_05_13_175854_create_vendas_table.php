@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_venda');
             $table->foreignId('id_produto')->constrained("produtos");
             $table->foreignId('id_cliente')->constrained("clientes");
             $table->timestamps();

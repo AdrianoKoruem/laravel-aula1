@@ -27,14 +27,21 @@
                             <th>Numeração</th>
                             <th>Produto</th>
                             <th>Cliente</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($findVendas as $venda)
                             <tr>
-                                <td>{{ $venda->id_venda }}</td>
-                                <td>{{ $venda->produto->nome}}</td>
+                                <td>{{ $venda->id }}</td>
+                                <td>{{ $venda->produto->nome }}</td>
                                 <td>{{ $venda->cliente->nome }}</td>
+                                <td>
+                                    <a href="{{ route('enviaComprovantePorEmail.venda', $venda->id) }}"
+                                        class="btn btn-info btn-sm">
+                                        Enviar Email
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -42,13 +49,4 @@
             @endif
         </div>
     </div>
-
-
-    <script>
-        alert("Eu sou um alert!");
-    </script>
-
-    <script>
-        alert("Segundo Alerta");
-    </script>
 @endsection

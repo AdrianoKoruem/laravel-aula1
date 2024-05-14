@@ -12,23 +12,20 @@ class VendasSeerder extends Seeder
     {
         Venda::create([
 
-            'id_venda' => 2,
+            'id_produto' => 1,
+            'id_cliente' => 1,
+        ]);
+
+        Venda::create([
+
+            'id_produto' => 2,
+            'id_cliente' => 2,
+        ]);
+
+        Venda::create([
+
             'id_produto' => 3,
-            'id_cliente' => 2,
-        ]);
-
-        Venda::create([
-
-            'id_venda' => 1,
-            'id_produto' => 5,
-            'id_cliente' => 2,
-        ]);
-
-        Venda::create([
-
-            'id_venda' => 6,
-            'id_produto' => 6,
-            'id_cliente' => 2,
+            'id_cliente' => 3,
         ]);
     }
 }

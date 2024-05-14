@@ -20,7 +20,7 @@ class ClienteSeeder extends Seeder
         ]);
         
         Clientes::create([
-            'nome'=>'test',
+            'nome'=>'Nome1',
             'email'=>'test@gmail.com',
             'Endereco'=>'Rua A',
             'Logradouro'=>'Rua A',
@@ -29,7 +29,7 @@ class ClienteSeeder extends Seeder
         ]);
         
         Clientes::create([
-            'nome'=>'test1',
+            'nome'=>'Nome2',
             'email'=>'test1@gmail.com',
             'Endereco'=>'Rua A',
             'Logradouro'=>'Rua A',
