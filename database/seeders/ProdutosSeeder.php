@@ -24,5 +24,10 @@ class ProdutosSeeder extends Seeder
             'nome' => 'pote',
             'valor' => '20.80',
         ]);
+
+        Produto::create([
+            'nome' => 'jarra',
+            'valor' => '20.80',
+        ]);
     }
 }

@@ -36,5 +36,23 @@ class ClienteSeeder extends Seeder
             'Bairro'=>'st tereza',
             'cep'=>'12345678',        
         ]);
+        
+        Clientes::create([
+            'nome'=>'Nome3',
+            'email'=>'test1@gmail.com',
+            'Endereco'=>'Rua A',
+            'Logradouro'=>'Rua A',
+            'Bairro'=>'st tereza',
+            'cep'=>'12345678',        
+        ]);
+        
+        Clientes::create([
+            'nome'=>'Nome4',
+            'email'=>'test1@gmail.com',
+            'Endereco'=>'Rua A',
+            'Logradouro'=>'Rua A',
+            'Bairro'=>'st tereza',
+            'cep'=>'12345678',        
+        ]);
     }
 }

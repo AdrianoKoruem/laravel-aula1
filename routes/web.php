@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\cliente;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 use Monolog\Handler\RotatingFileHandler;
@@ -18,8 +19,9 @@ use Monolog\Handler\RotatingFileHandler;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::prefix('dashboard')->group(function () {
+
+    Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
 });
 
 Route::prefix('produtos')->group(function () {
@@ -38,6 +40,17 @@ Route::prefix('produtos')->group(function () {
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
 
+Route::prefix('vendas')->group(function () {
+
+    Route::get('/', [VendaController::class, 'index'])->name('vendas.index');
+
+    // create
+    Route::get('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
+    Route::post('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
+
+    Route::get('/enviaComprovantePorEmail//{id}', [VendaController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.venda');
+});
+
 Route::prefix('clientes')->group(function () {
 
     Route::get('/', [ClientesController::class, 'index'])->name('cliente.index');
@@ -52,17 +65,6 @@ Route::prefix('clientes')->group(function () {
 
     // delete
     Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
-});
-
-Route::prefix('vendas')->group(function () {
-
-    Route::get('/', [VendaController::class, 'index'])->name('vendas.index');
-
-    // create
-    Route::get('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
-    Route::post('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.venda');
-    
-    Route::get('/enviaComprovantePorEmail//{id}', [VendaController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.venda');
 });
 
 // Route::resource('clientes', ClientesController::class);
