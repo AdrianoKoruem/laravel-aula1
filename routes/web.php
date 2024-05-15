@@ -4,6 +4,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\cliente;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 use Monolog\Handler\RotatingFileHandler;
@@ -21,7 +22,7 @@ use Monolog\Handler\RotatingFileHandler;
 
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/', [UserController::class, 'index'])->name('dashboard.index');
 });
 
 Route::prefix('produtos')->group(function () {
@@ -66,5 +67,23 @@ Route::prefix('clientes')->group(function () {
     // delete
     Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
 });
+
+Route::prefix('user')->group(function () {
+
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+
+    // create
+    Route::get('/cadastrarUser', [UserController::class, 'cadastrarUser'])->name('cadastrar.user');
+    Route::post('/cadastrarUser', [UserController::class, 'cadastrarUser'])->name('cadastrar.user');
+
+    // update
+    Route::get('/atualizarUser/{id}', [UserController::class, 'atualizarUser'])->name('atualizar.user');
+    Route::put('/atualizarUser/{id}', [UserController::class, 'atualizarUser'])->name('atualizar.user');
+
+    // delete
+    Route::delete('/delete', [UserController::class, 'delete'])->name('user.delete');
+});
+
+
 
 // Route::resource('clientes', ClientesController::class);

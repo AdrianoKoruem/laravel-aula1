@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">E-mail</label>
-            <input id="email" value="{{ old('email') }}" class="form-control " name="email">
+            <input id="email" value="{{ old('email') }}" class="form-control " name="email" required>
         </div>
         <div class="mb-3">
             <label class="form-label">CEP</label>

@@ -17,9 +17,8 @@
 
         <div class="mb-3">
             <label class="form-label">Valor do produto</label>
-            <input id="mascara_valor" value="{{ isset($findProduto->valor) ? $findProduto->valor : old('valor') }}"
+            <input id="money" value="{{ isset($findProduto->valor) ? $findProduto->valor : old('valor') }}"
                 type="text" class="form-control " name="valor" required>
-            {{-- mascara de valor no js --}}
         </div>
 
         <button type="submit" class="btn btn-success">Gravar</button>

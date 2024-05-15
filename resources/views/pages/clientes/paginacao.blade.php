@@ -5,7 +5,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Clientes</h1>
     </div>
-
     <div>
         <form action="{{ route('cliente.index') }}" method="get">
 
@@ -30,6 +29,7 @@
                             <th>Logradouro</th>
                             <th>Bairro</th>
                             <th>CEP</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
