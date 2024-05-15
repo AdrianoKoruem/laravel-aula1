@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestVenda;
+use App\Mail\ComprovanteDeVendaEmail;
 use App\Models\Clientes;
 use App\Models\Produto;
 use App\Models\Venda;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class VendaController extends Controller
 {
@@ -33,8 +35,7 @@ class VendaController extends Controller
 
             Venda::create($data);
 
-            Toastr::success('gravado com sucesso');
-
+            Toastr::success('Gravado com sucesso');
             return redirect()->route('vendas.index');
         }
 
@@ -48,8 +49,19 @@ class VendaController extends Controller
     public function enviaComprovantePorEmail($id){
         $buscarVenda = Venda::where('id', '=', $id)->first();
         $produtoNome = $buscarVenda->produto->nome;
-        $clienteNome = $buscarVenda->cliente->email;
+        $clienteNome = $buscarVenda->cliente->nome;
+        $clienteEmail = $buscarVenda->cliente->email;
+        $SendMailData = [
 
-        dd($buscarVenda, $produtoNome, $clienteNome);
+            'produtoNome' => $produtoNome,
+            'clienteNome' => $clienteNome,
+
+        ];
+
+        Mail::to($clienteEmail)->send(new ComprovanteDeVendaEmail($SendMailData));
+
+        Toastr::success('Enviado com sucesso');
+        return redirect()->route('vendas.index');
     }
+
 };
