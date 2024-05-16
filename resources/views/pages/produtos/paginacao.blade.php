@@ -30,13 +30,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($findProduto as $produto)
+                        @foreach ($findProduto->sortBy('nome') as $produto)
                             <tr>
-                                <td>{{ $produto->nome }}</td>
+                                <td>{{ ucwords($produto->nome) }}</td>
                                 <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
                                 <td>
-                                    
-                                    <a href="{{ route('atualizar.produto',$produto->id)}}" class="btn btn-light btn-sm">
+
+                                    <a href="{{ route('atualizar.produto', $produto->id) }}" class="btn btn-light btn-sm">
                                         Editar
                                     </a>
 

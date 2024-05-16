@@ -22,7 +22,7 @@ use Monolog\Handler\RotatingFileHandler;
 
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', [UserController::class, 'index'])->name('dashboard.index');
+    Route::get('/', [dashboardController::class, 'index'])->name('dashboard.index');
 });
 
 Route::prefix('produtos')->group(function () {

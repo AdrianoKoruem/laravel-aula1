@@ -30,10 +30,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($findUser as $user)
+                        @foreach ($findUser->sortBy('nome') as $user)
                             <tr>
-                                <td>{{ $user->nome }}</td>
-                                <td>{{ $user->email  }}</td>
+                                <td>{{ ucwords($user->nome) }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td>
 
                                     <a href="{{ route('atualizar.user', $user->id) }}" class="btn btn-light btn-sm">

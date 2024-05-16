@@ -33,9 +33,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($findClientes as $cliente)
+                        @foreach ($findClientes->sortBy('nome') as $cliente)
                             <tr>
-                                <td>{{ $cliente->nome }}</td>
+                                <td>{{ ucwords($cliente->nome) }}</td>
                                 <td>{{ $cliente->email }}</td>
                                 <td>{{ $cliente->endereco }}</td>
                                 <td>{{ $cliente->logradouro }}</td>

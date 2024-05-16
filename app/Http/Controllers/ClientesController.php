@@ -38,6 +38,7 @@ class ClientesController extends Controller
         if ($request->method() == 'POST') {
 
             $data = $request->all();
+            $data['nome'] = strtolower($data['nome']);
 
             $componentes = new componentes();
 
@@ -56,6 +57,7 @@ class ClientesController extends Controller
         if ($request->method() == 'PUT') {
 
             $data = $request->all();
+            $data['nome'] = strtolower($data['nome']);
 
             $buscarRegistro = Clientes::find($id);
             $buscarRegistro->update($data);

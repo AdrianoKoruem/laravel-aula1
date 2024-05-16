@@ -14,13 +14,13 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Senha</label>
-            <input value="{{ old('password') }}" type="password" class="form-control " name="password" required>
+            <label class="form-label">Email</label>
+            <input value="{{ old('email') }}" type="text" class="form-control " name="email" required>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input value="{{ old('email') }}" type="text" class="form-control " name="email" required>
+            <label class="form-label">Senha</label>
+            <input value="{{ old('password') }}" type="password" class="form-control " name="password" required>
         </div>
 
         <button type="submit" class="btn btn-success">Gravar</button>

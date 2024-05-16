@@ -39,6 +39,7 @@ class UserController extends Controller
 
             $data = $request->all();
             $data['password'] = Hash::make($data['password']);
+            $data['nome'] = strtolower($data['nome']);
                         
             User::create($data);
 
@@ -55,6 +56,7 @@ class UserController extends Controller
         if ($request->method() == 'PUT') {
 
             $data = $request->all();
+            $data['nome'] = strtolower($data['nome']);
             $data['password'] = Hash::make($data['password']);
 
             $buscarRegistro = User::find($id);

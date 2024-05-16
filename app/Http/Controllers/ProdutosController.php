@@ -40,6 +40,7 @@ class ProdutosController extends Controller
         if ($request->method() == 'POST') {
 
             $data = $request->all();
+            $data['nome'] = strtolower($data['nome']);
 
             $componentes = new Componentes();
             $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);

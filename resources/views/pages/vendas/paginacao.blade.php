@@ -34,8 +34,8 @@
                         @foreach ($findVendas as $venda)
                             <tr>
                                 <td>{{ $venda->id }}</td>
-                                <td>{{ $venda->produto->nome }}</td>
-                                <td>{{ $venda->cliente->nome }}</td>
+                                <td>{{ ucwords($venda->produto->nome) }}</td>
+                                <td>{{ ucwords($venda->cliente->nome) }}</td>
                                 <td>
                                     <a href="{{ route('enviaComprovantePorEmail.venda', $venda->id) }}"
                                         class="btn btn-info btn-sm">

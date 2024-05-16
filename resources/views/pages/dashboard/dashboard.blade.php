@@ -10,8 +10,8 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Produto Cadastrados</h5>
-                    <p class="card-text">Total de produtos Cadastrados = {{ $totalDeProdutoCadastrado }}</p>
-                    <a href="{{ route('produto.index') }}" class="btn btn-primary"> Ir para produtos </a>
+                    <p class="card-text">Total de Produtos Cadastrados = {{ $totalDeProdutoCadastrado }}</p>
+                    <a href="{{ route('produto.index') }}" class="btn btn-primary"> Ir para Produtos </a>
                 </div>
             </div>
         </div>
@@ -38,9 +38,9 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Usuarios Cadastrados</h5>
-                    <p class="card-text">Total de Usuarios Cadastrados = {{ $totalUserCadastrados }} </p>
-                    <a href="#" class="btn btn-primary">{{route('user.index')}}</a>
+                    <h5 class="card-title">Usuários Cadastrados</h5>
+                    <p class="card-text">Total de Usuários Cadastrados = {{ $totalUserCadastrados }} </p>
+                    <a href="{{route('user.index')}}" class="btn btn-primary" >Ir para Usuário</a>
                 </div>
             </div>
         </div>
